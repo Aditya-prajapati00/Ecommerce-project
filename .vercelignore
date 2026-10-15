@@ -1,0 +1,6 @@
+.git
+.vscode
+.gemini
+node_modules
+*.log
+run_project.bat

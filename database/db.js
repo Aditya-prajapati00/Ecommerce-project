@@ -7,10 +7,10 @@
 const path = require('path');
 const fs = require('fs');
 
-const DB_DIR = path.join(__dirname);
+const DB_DIR = process.env.VERCEL ? '/tmp' : path.join(__dirname);
 const DB_FILE = path.join(DB_DIR, 'atelier.db');
-const SCHEMA_FILE = path.join(DB_DIR, 'schema.sql');
-const SEED_FILE = path.join(DB_DIR, 'seed.sql');
+const SCHEMA_FILE = path.join(__dirname, 'schema.sql');
+const SEED_FILE = path.join(__dirname, 'seed.sql');
 
 if (!fs.existsSync(DB_DIR)) {
   fs.mkdirSync(DB_DIR, { recursive: true });

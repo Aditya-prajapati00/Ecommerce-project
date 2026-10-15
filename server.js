@@ -8,7 +8,7 @@ const path = require('path');
 const fs = require('fs');
 
 const PORT = process.env.PORT || 3000;
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
+const UPLOADS_DIR = process.env.VERCEL ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 
 if (!fs.existsSync(UPLOADS_DIR)) {
   fs.mkdirSync(UPLOADS_DIR, { recursive: true });
@@ -77,8 +77,11 @@ if (express) {
     });
   };
 
-  startServer(PORT);
+  if (!process.env.VERCEL) {
+    startServer(PORT);
+  }
 
+  module.exports = app;
 } else {
   // Built-in Native Node HTTP Server (Zero Dependencies Fallback)
   const http = require('http');
