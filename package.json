@@ -1,0 +1,25 @@
+{
+  "name": "atelier-luxe-ecommerce",
+  "version": "1.0.0",
+  "description": "Atelier Luxe - Contemporary Luxury Apparel E-Commerce Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "clothing",
+    "express",
+    "sqlite3",
+    "bootstrap"
+  ],
+  "author": "Atelier Luxe Haute Couture",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7",
+    "multer": "^1.4.5-lts.1",
+    "cors": "^2.8.5"
+  }
+}
