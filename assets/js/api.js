@@ -12,9 +12,9 @@
  */
 
 export const API_CONFIG = {
-  USE_BACKEND_SERVER: false, // Set to true once Express.js server is launched
-  BASE_URL: 'http://localhost:5000/api/v1',
-  LOCAL_UPLOADS_URL: 'http://localhost:5000/uploads'
+  USE_BACKEND_SERVER: true, // Live Decoupled Express.js & SQLite3 Backend Active
+  BASE_URL: '/api/v1',
+  LOCAL_UPLOADS_URL: '/uploads'
 };
 
 // Initial Seed Garment Database for Frontend Decoupled Mode

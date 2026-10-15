@@ -292,6 +292,23 @@
         filters: { category: 'all', priceMax: 600, search: '', sortBy: 'featured' },
         ui: { isCartOpen: false, isProductModalOpen: false, activeProduct: null, isCheckoutOpen: false, checkoutStep: 1 }
       };
+      this.fetchFromBackend();
+    }
+
+    async fetchFromBackend() {
+      try {
+        const res = await fetch('/api/v1/products');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+            this.state.products = json.data;
+            this.saveStorage('atelier_products', json.data);
+            this.publish('filters:changed');
+          }
+        }
+      } catch (e) {
+        // Standalone/offline mode fallback active
+      }
     }
 
     loadStorage(key, fallback) {
